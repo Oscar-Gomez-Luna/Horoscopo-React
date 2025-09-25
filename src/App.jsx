@@ -60,20 +60,20 @@ const App = () => {
       'Piscis': 'Tu sensibilidad te conecta profundamente con otros. Usa tu empatía como herramienta de sanación.'
     };
     
-    setHoroscope(horoscopes[zodiacSign] || horoscopes['']);
+    setHoroscope(horoscopes[zodiacSign] || '');
   };
 
   return (
-    <div className="h-screen w-screen bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 p-4">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-4xl font-bold text-center text-white mb-8 flex items-center justify-center gap-3">
+    <div className="min-h-screen w-full bg-gradient-to-br from-indigo-900 via-purple-900 to-pink-800 p-4">
+      <div className="max-w-4xl w-full mx-auto">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-center text-white mb-8 flex items-center justify-center gap-3">
           Horóscopo React
         </h1>
         
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {/* Panel de Entrada */}
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl">
-            <h2 className="text-2xl font-semibold text-white mb-6 flex items-center gap-2">
+            <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 flex items-center gap-2">
               <Calendar className="text-blue-300" />
               Información Personal
             </h2>
@@ -87,7 +87,7 @@ const App = () => {
                   type="text"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
-                  className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/20 border border-white/30 rounded-lg text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
                   placeholder="Ingresa tu nombre"
                 />
               </div>
@@ -100,13 +100,13 @@ const App = () => {
                   type="date"
                   value={birthDate}
                   onChange={handleDateChange}
-                  className="w-full px-4 py-3 bg-white/20 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
+                  className="w-full px-3 py-2 sm:px-4 sm:py-3 bg-white/20 border border-white/30 rounded-lg text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all"
                 />
               </div>
               
               <button
                 onClick={generateHoroscope}
-                className="w-full bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600 text-white font-semibold py-3 px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
+                className="w-full bg-gradient-to-r from-pink-500 to-violet-500 hover:from-pink-600 hover:to-violet-600 text-white font-semibold py-2 sm:py-3 px-4 sm:px-6 rounded-lg transition-all transform hover:scale-105 shadow-lg hover:shadow-xl"
               >
                 Calcular Horóscopo
               </button>
@@ -115,24 +115,24 @@ const App = () => {
           
           {/* Panel de Resultado */}
           <div className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-xl">
-            <h2 className="text-2xl font-semibold text-white mb-6 flex items-center gap-2">
+            <h2 className="text-xl sm:text-2xl font-semibold text-white mb-6 flex items-center gap-2">
               Tu Signo es: {zodiacSign}
             </h2>
             
             <div className="mb-6">
-              <div className="w-24 h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full mx-auto mb-4 flex items-center justify-center shadow-lg">
                 <span className="text-3xl"><img src={imgSing} alt="" /></span>
               </div>
             </div>
             
             <div className="space-y-4">
-              <h3 className="text-xl font-medium text-white">
+              <h3 className="text-lg sm:text-xl font-medium text-white">
                 {name}:
               </h3>
               
               <div className="bg-white/5 rounded-lg p-4 border border-white/10">
                 {horoscope ? (
-                  <p className="text-white/90 leading-relaxed text-sm">
+                  <p className="text-white/90 leading-relaxed text-sm sm:text-base">
                     {horoscope}
                   </p>
                 ) : (
